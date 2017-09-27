@@ -1,0 +1,39 @@
+<div id="third-app">
+	<style type="text/css">
+		#third-app {
+			width: 100%;
+			height: 100%;
+			border-radius: 0 0px 5px 5px;
+			background-color: #0f0;
+		}
+		
+		.bord {
+			width: 40px;
+			height: 30px;
+			border: 1px solid #222;
+		}
+		
+		#btnex {
+			display: inline-block;
+			width: 100px;
+			height: 40px;
+		}
+	</style>
+	i am C {{= user}}
+	<button id="btnex">change</button>
+	<div class="bord">test</div>
+
+	<script type="text/javascript">
+		var eleObj = {
+			ctn: ".ctn",
+			scriptID: "#third",
+			tmplID: "#third-app",
+			data: {
+				user: "bilibili"
+			}
+		};
+		$('#third-app #btnex').on('click', function() {
+			controler.reTmpl(eleObj);
+		});
+	</script>
+</div>

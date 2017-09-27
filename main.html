@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jq tmpl</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			@keyframes show {
+				from {
+					transform: translateY(-100%);
+				}
+				to {
+					transform: translateY(3%);
+				}
+			}
+			
+			.box {
+				animation: 1s show ease;
+				margin: 7% auto;
+				display: block;
+				width: 25.99rem;
+				box-shadow: 0px 5px 20px 2px #222;
+				border-radius: 5px;
+			}
+			
+			.box:hover {
+				cursor: pointer;
+				transform: translate3d(0, -2%, 0);
+				box-shadow: 0px 18px 20px 2px #222;
+			}
+			
+			.guide {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				height: 2rem;
+				border-radius: 5px;
+			}
+			
+			.guide>a {
+				flex: 1;
+				outline: none;
+				display: inline-flex;
+				height: 100%;
+				justify-content: center;
+				align-items: center;
+				text-decoration: none;
+				background-color: #FAC;
+				color: #333;
+				border-right: 2px solid #00acac;
+			}
+			
+			.guide>a:first-child {
+				border-left: none;
+				border-radius: 5px 0px 0 0;
+			}
+			
+			.guide>a:last-child {
+				border-right: none;
+				border-radius: 0 5px 0 0;
+			}
+			
+			.guide>a:hover {
+				box-shadow: inset 0 0 15px #f766a0;
+			}
+			
+			.ctn {
+				height: 30rem;
+				width: 100%;
+				background-color: #222;
+				border-radius: 0 0px 5px 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="guide">
+				<a href="#first">A</a>
+				<a href="#second">B</a>
+				<a href="#third">C</a>
+			</div>
+			<div class="ctn"></div>
+		</div>
+
+		<script src="http://lib.baomitu.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/route.js"></script>
+		<script src="js/control.js"></script>
+		<script type="text/javascript">
+			var data = {
+				user: 'hahahah',
+				height: 166
+			};
+			var info = {
+				user: 'express',
+				height: 213
+			};
+			var rules = [
+				{
+					href: "#first",
+					ctn: ".ctn",
+					url: "./components/a.html",
+					data: data
+				},
+				{
+					href: "#second",
+					ctn: ".ctn",
+					url: "./components/b.html",
+					data: info
+				},
+				{
+					href: "#third",
+					ctn: ".ctn",
+					url: "./components/c.html",
+					data: info
+				},
+				{
+					href: "#err",
+					ctn: ".ctn",
+					url: "./components/d.html",
+					data: data
+				}
+			];
+			controler = new Control("first", "err", rules);
+			
+			
+		</script>
+	</body>
+
+</html>
